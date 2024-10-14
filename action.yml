@@ -4,12 +4,10 @@ description: "A composite action that performs multiple steps"
 inputs:
   input1:
     description: "First input"
-    required: false
-    default: "deafult-value"
+    required: true
   input2:
     description: "Second input"
-    required: false
-    default: "default-value"
+    required: true
 runs:
   using: "composite"
   steps:
