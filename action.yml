@@ -56,7 +56,7 @@ runs:
 
       - name: Build project
         run: yarn build
-        shell: bash
+        shell: bash 
 
       - name: Upload build artifacts (optional)
         uses: actions/upload-artifact@v3
