@@ -35,9 +35,33 @@ runs:
         run: pytest
       - name: Print input1
         shell: bash
-        run: echo "Input1 is ${{ inputs.input1 }}"
+        run: echo "Input1 is  ${{ inputs.input1 }}"
 
       - name: Print input2
         shell: bash
         run: echo "Input2 is ${{ inputs.input2 }}"
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18' # Specify the Node.js version
+          cache: 'yarn'      # Cache Yarn dependencies for faster builds
+
+      - name: Install Yarn
+        run: npm install -g yarn
+        shell: bash
+
+      - name: Install dependencies
+        run: yarn install
+        shell: bash
+
+      - name: Build project
+        run: yarn build
+        shell: bash
+
+      - name: Upload build artifacts (optional)
+        uses: actions/upload-artifact@v3
+        with:
+          name: build
+          path: build/
+    
 
